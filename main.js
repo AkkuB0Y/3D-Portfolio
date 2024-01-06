@@ -1,7 +1,4 @@
 import './style.css'
-import javascriptLogo from './javascript.svg'
-import viteLogo from '/vite.svg'
-
 
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
@@ -24,12 +21,12 @@ renderer.render(scene, camera);
  // Fancy Shapes
 
 const geometry = new THREE.TorusGeometry(10, 3, 16, 100);
-const material = new THREE.MeshStandardMaterial({ color: 0xfafafa, wireframe: true});
+const material = new THREE.MeshStandardMaterial({ color: 0xf0f0f0, wireframe: true});
 const torus = new THREE.Mesh(geometry, material);
 
 scene.add(torus);
 
-const pointLight = new THREE.PointLight(0xfffdc2);
+const pointLight = new THREE.PointLight(0xfafafa);
 pointLight.position.set(20, 20, 20);
 
 const ambientLight = new THREE.AmbientLight(0xfafafa);
@@ -38,32 +35,31 @@ scene.add(pointLight, ambientLight);
 // no need for helper right now
 
 const lightHelper = new THREE.PointLightHelper(pointLight);
-const gridHelper = new THREE.GridHelper(200, 50);
-scene.add(lightHelper, gridHelper);
+scene.add(lightHelper);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
 function addStar() {
-  const geometry = new THREE.IcosahedronGeometry(0.25, 24, 24);
+  const geometry = new THREE.IcosahedronGeometry(0.3, 24, 24);
   const material = new THREE.MeshStandardMaterial({color: 0xd0d0ff});
   const star = new THREE.Mesh(geometry, material);
 
   const [x, y, z] = Array(3).fill().map(() => THREE.MathUtils.randFloatSpread(100));
   
-  star.position.set(x ,y ,z);
+  star.position.set(x, y, z);
   scene.add(star);
 }
 
-Array(100).fill().forEach(addStar);
+Array(150).fill().forEach(addStar);
 
 // adding a background (NOT DONE YET)
-const spaceTexture = new THREE.TextureLoader().load('space.jpg');
+const spaceTexture = new THREE.TextureLoader().load('space2.webp');
 scene.background = spaceTexture;
 
-const akshayTexture = new THREE.TextureLoader().load('IMG_1974.jpg');
+const akshayTexture = new THREE.TextureLoader().load('IMG_2886.jpg');
 
 const akshay = new THREE.Mesh(
-  new THREE.IcosahedronGeometry(2, 2, 2),
+  new THREE.BoxGeometry(3, 3, 3),
   new THREE.MeshBasicMaterial({map: akshayTexture})
 );
 
@@ -86,8 +82,9 @@ scene.add(moon);
 moon.position.z = 30;
 moon.position.setX(-10);
 
-akshay.position.z = -5;
+akshay.position.setZ(-5);
 akshay.position.x = 2;
+akshay.position.y = -1;
 
 function moveCamera () {
 
