@@ -105,7 +105,10 @@ blockquote p {
 
 @media (max-width: 700px) {
 
+  body {
+    height: 110vh;
+  }
   header {
-    grid-column: 2 / span 11
+    grid-column: 1 / span 10
   }
 }
