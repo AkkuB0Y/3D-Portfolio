@@ -32,11 +32,6 @@ pointLight.position.set(20, 20, 20);
 const ambientLight = new THREE.AmbientLight(0xfafafa);
 scene.add(pointLight, ambientLight);
 
-// no need for helper right now
-
-const lightHelper = new THREE.PointLightHelper(pointLight);
-scene.add(lightHelper);
-
 const controls = new OrbitControls(camera, renderer.domElement);
 
 function addStar() {
@@ -52,7 +47,7 @@ function addStar() {
 
 Array(150).fill().forEach(addStar);
 
-// adding a background (NOT DONE YET)
+// adding a background
 const spaceTexture = new THREE.TextureLoader().load('space2.webp');
 scene.background = spaceTexture;
 

@@ -1,3 +1,11 @@
+html,body {
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  overflow-x: hidden;
+}
+
 canvas {
   position: fixed;
   top: 0;
@@ -95,9 +103,9 @@ blockquote p {
   transition: 0.5s ease-in-out;
 }
 
-@media (max-width: 800px) {
+@media (max-width: 700px) {
 
   header {
-    grid-column: 2 / span 9
+    grid-column: 2 / span 11
   }
 }
