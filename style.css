@@ -64,8 +64,7 @@ section {
 }
 
 blockquote {
-  margin: 0;
-  padding: 0;
+  margin: 2rem;
   grid-column: 2 / span 9;
   margin-bottom: var(--spacing);
 }
@@ -73,7 +72,8 @@ blockquote {
 blockquote p {
   color: rgb(10, 0, 42);
   background-color: rgb(255, 255, 255);
-  font-size: 4rem;
+  padding: 2rem;
+  font-size: 3rem;
   display: inline-flex;
   line-height: 1;
 }
